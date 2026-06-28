@@ -83,8 +83,12 @@ def get_environment_info() -> Dict[str, str]:
 class ProjectPaths:
     """Centralised path registry for the project."""
 
-    def __init__(self, root: str = "/home/claude/BEST-ML-Forecasting"):
-        self.root         = Path(root)
+    def __init__(self, root: Optional[str] = None):
+        if root is not None:
+            self.root = Path(root)
+        else:
+            # Auto-detect: go up from src/ to project root
+            self.root = Path(__file__).resolve().parent.parent
         self.data_raw     = self.root / "data" / "raw"
         self.data_proc    = self.root / "data" / "processed"
         self.notebooks    = self.root / "notebooks"
@@ -101,7 +105,10 @@ class ProjectPaths:
     def _create_all(self) -> None:
         for attr, path in self.__dict__.items():
             if isinstance(path, Path):
-                path.mkdir(parents=True, exist_ok=True)
+                try:
+                    path.mkdir(parents=True, exist_ok=True)
+                except PermissionError:
+                    pass  # Read-only filesystem on Streamlit Cloud — skip
 
     def fig(self, name: str) -> str:
         """Return string path to a figure file."""
