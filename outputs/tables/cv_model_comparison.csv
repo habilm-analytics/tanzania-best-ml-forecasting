@@ -1,0 +1,10 @@
+Model,CV_MAE_mean,CV_MAE_std,CV_RMSE_mean
+Linear Regression,0.8076,0.3824,0.8076
+Ridge,0.8335,0.3237,0.8336
+Lasso,0.9266,1.1224,0.9266
+Random Forest,1.0975,0.7755,1.1004
+Gradient Boosting,1.1929,0.7338,1.1931
+ElasticNet,1.193,0.8359,1.193
+AdaBoost,1.37,0.5392,1.37
+Extra Trees,1.3722,0.39,1.3722
+HistGradBoost,1.5425,0.0542,1.5425
