@@ -1,5 +1,6 @@
 # Forecasting Education Performance Using Machine Learning
 ## An End-to-End Analysis of Tanzania BEST Datasets (2020-2024)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://best-ml-tanzania.streamlit.app)
 
 > **Author:** Habil Masawika  
 > **Domain:** Education Analytics | Machine Learning | Public Policy  
